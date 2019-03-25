@@ -1,0 +1,30 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class A
+{
+	void m1(String o){
+	    System.out.println("A m1");
+	}
+}
+
+class B extends A{
+    
+    void m1(Object s){
+        System.out.println("B m1");
+    }
+    void m2(){
+        System.out.println("B m2");
+    }
+    
+    public static void main (String[] args) {
+       A a = new B();
+       a.m1(null);
+       a.m1("abc");
+       a.m1(new String("abc"));
+    }
+}
