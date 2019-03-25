@@ -1,0 +1,58 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		List<Employee> l = new ArrayList<Employee>();
+		Employee e1 = new Employee();
+		e1.id=1;e1.name="abc";e1.dept="d1";
+		Employee  e2 = new Employee();
+		e2.id=1;e2.name="abc";e2.dept="d2";
+		Employee  e3 = new Employee();
+		e3.id=3;e3.name="bcd";e3.dept="d3";
+		
+		l.add(e1);
+		l.add(e2);
+		l.add(e3);
+		System.out.println(l);
+		
+		Set<Employee> s = new LinkedHashSet<Employee>();
+		s.addAll(l);
+		l.clear();
+		l.addAll(s);
+		
+		System.out.println(l);
+		
+	}
+}
+
+class Employee{
+    Integer id;
+    String name;
+    String dept;
+    
+    public String toString(){
+        return this.id+":"+this.name+":"+this.dept;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(obj  instanceof Employee){
+            Employee  e = (Employee)obj;
+            if(e.id  == this.id && e.name==(this.name) ){
+              return true;
+            }
+        }
+         return false;
+    }
+    
+    @Override
+    public int hashCode(){
+        return this.id.hashCode()+this.name.hashCode();
+    }
+}
